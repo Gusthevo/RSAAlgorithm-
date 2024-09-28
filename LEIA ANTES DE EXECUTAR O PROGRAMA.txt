@@ -1,0 +1,12 @@
+PASSOS PARA EXECUTAR O CÓDIGO CORRETAMENTE E VERIFICAR AS FUNCIONALIDADES NA ORDEM MAIS ADEQUADA:
+
+1 - Certificar de que possui a biblioteca cryptodome, cryptography, seaborn e matplotlib instalada -> pip install pycryptodome e pip install cryptography, etc
+2 - Executar o arquivo de geração de chaves de Bob e Alice -> python .\generateKeysAlice.py ou python .\generateKeysBob.py
+3 - Aqui já é possível verificar a métrica de tempo de execução dessas chaves python -> .\metricGenerationKeys.py
+4 - Executar tanto a confidencialidade quanto a autenticidade, já que um é diferente do outro
+5 - Se for a confidencialidade, executar primeiro o arquivo de Alice, já que ela que cifra o texto claro, e depois o de Bob, que decifra -> python .\AliceConfidentiality.py e python .\BobConfidentiality.py
+6 - A métrica da confidencialdiade já funcionará normalmente -> python .\metricBobandAliceConfidentiality.py
+7 - Se for autenticidade, executar primeiro o arquivo de Bob, já que ele assina a mensagem com sua chave privada, e Alice verifica com a chave pública de Bob -> python .\BobAuthenticity.py e python .\AliceAuthenticity.py
+8 - A métrica da autenticidade já funcionará normalmente -> python .\metricBobandAliceSignatureMessage.py
+9 - Alguns arquivos mostram repetição de funções, porém foi necessário porque foi a única forma encontrada de fazer funcionar, pois há uma mistura de tipos de arquivos -> bytes e strings, etc...
+10 - Ao realizar a confidencialidade pelo arquivo de Alice, há um limite de caracteres para cifração, permitindo apenas uma mensagem com 255 bytes 
